@@ -1,3 +1,3 @@
-module github.com/md14454/gosensors
+module github.com/eosswedenorg-go/gosensors
 
 go 1.12

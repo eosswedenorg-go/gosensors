@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/md14454/gosensors"
+	"github.com/eosswedenorg-go/gosensors"
 )
 
 func main() {
