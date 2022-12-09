@@ -1,7 +1,10 @@
 # gosensors
+
 Go bindings for libsensors.so from the lm-sensors project via cgo.
+
 ### Example
-``` go
+
+```go
 package main
 
 import (
