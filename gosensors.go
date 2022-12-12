@@ -264,7 +264,8 @@ func Init() error {
 	}
 	defer C.fclose(fp)
 
-	C.sensors_init(fp)
+	_, err = C.sensors_init(fp)
+	return err
 }
 
 func Cleanup() {
