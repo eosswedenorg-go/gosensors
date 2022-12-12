@@ -7,7 +7,6 @@ package gosensors
 import "C"
 
 import (
-	"log"
 	"unsafe"
 )
 
@@ -251,7 +250,7 @@ func (c Chip) GetFeatures() []Feature {
 	return features
 }
 
-func Init() {
+func Init() error {
 	filename := C.CString("/etc/sensors3.conf")
 	defer C.free(unsafe.Pointer(filename))
 
@@ -259,11 +258,11 @@ func Init() {
 	defer C.free(unsafe.Pointer(mode))
 
 	fp, err := C.fopen(filename, mode)
-	defer C.fclose(fp)
 
 	if fp == nil {
-		log.Fatal(err)
+		return err
 	}
+	defer C.fclose(fp)
 
 	C.sensors_init(fp)
 }
